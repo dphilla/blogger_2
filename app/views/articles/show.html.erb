@@ -3,4 +3,8 @@
 <p> <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "really delete this article?"}  %></p>
 <p> <%= link_to "Edit", edit_article_path(@article) %></p>
 
+<h3> Comments (<%= @article.comments.size %>) </h3>
+<%= render partial: 'articles/comment', collection: @article.comments.reverse %>
+
+<%= render partial: 'comments/form' %>
 <%= link_to "<< Back to All Articles", articles_path %>
